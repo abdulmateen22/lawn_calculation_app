@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Simple Map</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="{{ url_for('static', filename='index.js') }}" defer></script>
+  </head>
+  <body>
+
+    <!-- Floating Panel For Input Fields -->
+
+    <form action="/process" id="floating-panel" method="post">
+      <input id="geo-coors" name="coors" type="text" value="40.714224,-73.961452" />
+      <button type="submit" id="submit" disabled>Process</button>
+      <p id="errors"></p>
+    </form>
+
+    <!-- Map Container -->
+    <img id="map" src="{{ url_for('static', filename='world.jpeg') }}" alt="static-image">
+
+    <!-- 
+     The `defer` attribute causes the callback to execute after the full HTML
+     document has been parsed. For non-blocking uses, avoiding race conditions,
+     and consistent behavior across browsers, consider loading using Promises
+     with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+    -->
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxAXu13Dw608G7O9ON4iPxDttXeE27DQs"></script>
+  </body>
+</html>
