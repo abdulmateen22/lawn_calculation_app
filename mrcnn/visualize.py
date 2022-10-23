@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 from matplotlib import patches,  lines
 from matplotlib.patches import Polygon
 # import IPython.display
-
+import json
 # Root directory of the project
 ROOT_DIR = os.path.abspath("../")
 
@@ -105,7 +105,7 @@ def display_instances(image,boxes, masks, class_ids, class_names,
                       figsize=(16, 16), ax=None,
                       show_mask=True, show_bbox=True,
                       colors=None, captions=None):
-
+    dc={}
     N = boxes.shape[0]
     if not N:
         print("\n*** No instances to display *** \n")
@@ -168,7 +168,7 @@ def display_instances(image,boxes, masks, class_ids, class_names,
     sub=None
     if object_img != 0:
         print(f"There are {len(object_img)} lawn detected in image.")
-        i=0
+        i=1
         for r in object_img:
             roof_area = r.shape[0] * r.shape[1]
             # print(roof_area)
@@ -181,10 +181,11 @@ def display_instances(image,boxes, masks, class_ids, class_names,
                 sq_ft = sub/929
                 sq_ft = round(sq_ft,2)
                 print(f'The {i} lawn has {sq_ft}sqft.')
+                dc[i]=f'The {i} lawn has {sq_ft}sqft.'
                 i+=1
             
 
-    return ori_img
+    return ori_img,dc
 
 
 

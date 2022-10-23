@@ -1,9 +1,11 @@
 import os
+from datetime import datetime
+
 import cv2
 from mrcnn import visualize
 import mrcnn.model as modellib
 from mrcnn.config import Config
-
+import json
 import time
 import tensorflow as tf
 
@@ -57,7 +59,10 @@ model.load_weights(COCO_MODEL_PATH, by_name=True)
 model.keras_model._make_predict_function()
 # graph = tf.get_default_graph()
 
-
+def get_date_time_for_naming():
+    (dt, micro) = datetime.utcnow().strftime('%Y%m%d%H%M%S.%f').split('.')
+    dt_dateTime = "%s%03d" % (dt, int(micro) / 1000)
+    return dt_dateTime
 
 print("Loading weights from ", COCO_MODEL_PATH)
 
@@ -66,29 +71,36 @@ print("Loading weights from ", COCO_MODEL_PATH)
 
 
 
-out_dir = 'test_results'
+out_dir = 'static/test_results'
 try:
     os.mkdir(out_dir)
 except:
     pass
-
-
+try:
+    fol =str(get_date_time_for_naming())
+    os.mkdir(f'{out_dir}/{fol}')
+except:
+    pass
 
 def detect(image_path):
     # file =  os.path.basename(image_path)
-    # original_image = cv2.imread(image_path)
-    file =str(time.strftime("%Y%m%d-%H%M%S"))
-    original_image = image_path
-    print(image_path.shape)
-    if len(image_path.shape) > 2 and image_path.shape[2] == 4:
+    print(image_path)
+    original_image = cv2.imread(image_path)
+    file =str(get_date_time_for_naming())
+    # original_image = image_path
+    print(original_image.shape)
+    if len(original_image.shape) > 2 and original_image.shape[2] == 4:
         # convert the image from RGBA2RGB
-        original_image = cv2.cvtColor(image_path, cv2.COLOR_BGRA2BGR)
+        original_image = cv2.cvtColor(original_image, cv2.COLOR_BGRA2BGR)
     results = model.detect([original_image], verbose=1)
     r = results[0]
-    res_image = visualize.display_instances(original_image, r['rois'], r['masks'], r['class_ids'],['grass'], r['scores'], figsize=(8, 8))
-    cv2.imwrite(f'{out_dir}/{file}.jpg', res_image)
+    res_image,di = visualize.display_instances(original_image, r['rois'], r['masks'], r['class_ids'],['grass'], r['scores'], figsize=(8, 8))
+    path_j= f'{out_dir}/{fol}/{file}'
+    path_z= f'{out_dir}/{fol}'
+    cv2.imwrite(f'{out_dir}/{fol}/{file}.jpg', res_image)
+
     if  res_image is not None:
-        return True
+        return True,path_j,di,path_z,fol
     else:
         return False
 

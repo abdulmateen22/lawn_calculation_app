@@ -2,11 +2,8 @@ make your enviorment with python 3.6
 
 After that install important libaraies by pip install -r requirements.txt. All the requirements
 
-run the inference.py and place images in test_data folder.then it show the output in the terminal like this:
+add your eamil and keys in line no 16 or 18
 
-There are 3 lawn detected in image.
-The 0 lawn has 983.32sqft.
-The 1 lawn has 1907.86sqft.
-The 2 lawn has 205.71sqft.
+run the processor.py and copy link past it in the browser and fetch lomg and lat from the map and past there  and return the zip:
 
 
