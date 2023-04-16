@@ -24,7 +24,7 @@ def download_image(input):
     location = geolocator.geocode(input)
     response = get(f"https://maps.googleapis.com/maps/api/staticmap?center={latitude},{longitude}&scale=10&zoom=21&maptype=satellite&size=800x800&key=AIzaSyCxAXu13Dw608G7O9ON4iPxDttXeE27DQs", stream=True)
   
-    with open('static/map/image.png', 'wb') as file:
+    with open('static/map/image.jpg', 'wb') as file:
         for chunk in response.iter_content(1024):
             file.write(chunk)
     return location
@@ -38,7 +38,7 @@ def process():
 
       # perform any necessary processing on the image
       # and save the image to processed directory
-        image="static/map/image.png"
+        image="static/map/image.jpg"
         flag,path_j,di,path_z,fol = detect(image)
         di['Address']= str(location)
         with open(f'{path_j}.json','w')as f:
