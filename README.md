@@ -28,8 +28,8 @@ If all the installation has been done then open the console or terminal and comm
 
 
 #Results
-<img width="500px" height="auto" src="assests/test1.jpg"/>
-<img width="500px" height="auto" src="assests/test2.jpg" width="300"/>
+<img width="500px" height="auto" src="assests/test1.png"/>
+<img width="500px" height="auto" src="assests/test2.png"/>
 
 
 
