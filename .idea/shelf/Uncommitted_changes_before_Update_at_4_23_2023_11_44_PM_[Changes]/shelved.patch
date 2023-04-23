@@ -1,0 +1,21 @@
+Index: README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># lawn calculation app.\r\n\r\n### Description\r\n<p align=\"center\">\r\nBasically it is the webb app that use the google apis map api that capture the images using the longitude and latitude then use AI instance segmentation model\r\n**Mask_RCNN** to detect the lawn in that image. The scope that project is to facilitate user check there neighbours house that they have lawn or not if yes then how many area is cover by lawn here is the simple interface of that web app.\r\n</p>\r\n\r\n<p align=\"center\">\r\n<img width=\"500px\" height=\"auto\" src=\"assests/interface.png\" />\r\n</p>\r\n\r\n\r\n# Installations\r\n\r\nMake your python environment with python 3.6.\r\n\r\nAfter that install the project requirements with command`pip install -r requirement.txt`. \r\n\r\nDownload the maskrcnn weights  from [HERE](https://drive.google.com/drive/folders/19c5hOR14lrfxqUWw8QtmSKjP2CILb8xz?usp=sharing)and put in weights folder.\r\n\r\ncreate your googke developer account and  get your api key from ther and place it to processor.py **line no 25** and save it.\r\n\r\n\r\n# how to run\r\nIf all the installation has been done then open the console or terminal and command `python processor.py` url will be shown on terminal and hit the url web app page will be shown.\r\n\r\n\r\n\r\n#Results\r\n\r\n<img src=\"assests/test1.png\" width=\"300\"/> \r\n<img src=\"assests/test2.png\" width=\"300\"/>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/README.md b/README.md
+--- a/README.md	(revision fcd4e90117f39dd818a8e621789b3f8ed334c3ed)
++++ b/README.md	(date 1682275476174)
+@@ -29,8 +29,8 @@
+ 
+ #Results
+ 
+-<img src="assests/test1.png" width="300"/> 
+-<img src="assests/test2.png" width="300"/>
++<img src="assests/test1.png" width="500px" height="auto"/> 
++<img src="assests/test2.png" width="500px" height="auto"/>
+ 
+ 
+ 
