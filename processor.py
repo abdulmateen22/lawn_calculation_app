@@ -22,7 +22,7 @@ Bootstrap(app)
 def download_image(input):
     latitude, longitude =  [float(value.strip()) for value in input.split(",")]
     location = geolocator.geocode(input)
-    response = get(f"https://maps.googleapis.com/maps/api/staticmap?center={latitude},{longitude}&scale=10&zoom=21&maptype=satellite&size=800x800&key=AIzaSyCxAXu13Dw608G7O9ON4iPxDttXeE27DQs", stream=True)
+    response = get(f"https://maps.googleapis.com/maps/api/staticmap?center={latitude},{longitude}&scale=10&zoom=21&maptype=satellite&size=800x800&key=<key>", stream=True)
   
     with open('static/map/image.jpg', 'wb') as file:
         for chunk in response.iter_content(1024):

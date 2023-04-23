@@ -11,6 +11,24 @@ Basically it is the webb app that use the google apis map api that capture the i
 </p>
 
 
+# Installations
+
+Make your python environment with python 3.6.
+
+After that install the project requirements with command`pip install -r requirement.txt`. 
+
+Download the maskrcnn weights  from [HERE](https://drive.google.com/drive/folders/19c5hOR14lrfxqUWw8QtmSKjP2CILb8xz?usp=sharing)and put in weights folder.
+
+create your googke developer account and  get your api key from ther and place it to processor.py **line no 25** and save it.
+
+
+# how to run
+If all the installation has been done then open the console or terminal and command `python processor.py` url will be shown on terminal and hit the url web app page will be shown.
+
+
+
+#Results
+<img src="assests/test1.jpg" width="300"/> <img src="assests/test2.jpg" width="300"/>
 
 
 
@@ -23,6 +41,3 @@ Basically it is the webb app that use the google apis map api that capture the i
 
 
 
-
-
-## Weights links : https://drive.google.com/drive/folders/19c5hOR14lrfxqUWw8QtmSKjP2CILb8xz?usp=sharing
